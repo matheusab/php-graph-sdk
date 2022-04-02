@@ -21,6 +21,7 @@
  * DEALINGS IN THE SOFTWARE.
  *
  */
+
 namespace Facebook\GraphNodes;
 
 /**
@@ -58,8 +59,8 @@ class Collection implements ArrayAccess, Countable, IteratorAggregate
     /**
      * Gets the value of a field from the Graph node.
      *
-     * @param string $name    The field to retrieve.
-     * @param mixed  $default The default to return if the field doesn't exist.
+     * @param string $name The field to retrieve.
+     * @param mixed $default The default to return if the field doesn't exist.
      *
      * @return mixed
      */
@@ -75,8 +76,8 @@ class Collection implements ArrayAccess, Countable, IteratorAggregate
     /**
      * Gets the value of the named property for this graph object.
      *
-     * @param string $name    The property to retrieve.
-     * @param mixed  $default The default to return if the property doesn't exist.
+     * @param string $name The property to retrieve.
+     * @param mixed $default The default to return if the property doesn't exist.
      *
      * @return mixed
      *
@@ -162,7 +163,7 @@ class Collection implements ArrayAccess, Countable, IteratorAggregate
      *
      * @return int
      */
-    public function count()
+    public function count(): int
     {
         return count($this->items);
     }
@@ -172,7 +173,7 @@ class Collection implements ArrayAccess, Countable, IteratorAggregate
      *
      * @return ArrayIterator
      */
-    public function getIterator()
+    public function getIterator(): \Traversable
     {
         return new ArrayIterator($this->items);
     }
@@ -184,7 +185,7 @@ class Collection implements ArrayAccess, Countable, IteratorAggregate
      *
      * @return bool
      */
-    public function offsetExists($key)
+    public function offsetExists(mixed $key): bool
     {
         return array_key_exists($key, $this->items);
     }
@@ -196,7 +197,7 @@ class Collection implements ArrayAccess, Countable, IteratorAggregate
      *
      * @return mixed
      */
-    public function offsetGet($key)
+    public function offsetGet(mixed $key): mixed
     {
         return $this->items[$key];
     }
@@ -209,7 +210,7 @@ class Collection implements ArrayAccess, Countable, IteratorAggregate
      *
      * @return void
      */
-    public function offsetSet($key, $value)
+    public function offsetSet(mixed $key, mixed $value): void
     {
         if (is_null($key)) {
             $this->items[] = $value;
@@ -225,7 +226,7 @@ class Collection implements ArrayAccess, Countable, IteratorAggregate
      *
      * @return void
      */
-    public function offsetUnset($key)
+    public function offsetUnset(mixed $key): void
     {
         unset($this->items[$key]);
     }
