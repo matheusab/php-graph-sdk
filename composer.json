@@ -1,5 +1,5 @@
 {
-    "name": "nickdnk/graph-sdk",
+    "name": "matheusab/graph-sdk",
     "description": "Facebook SDK for PHP compatible with PHP8",
     "keywords": ["facebook", "sdk"],
     "type": "library",
@@ -31,6 +31,6 @@
         }
     },
     "replace": {
-        "facebook/graph-sdk": ">=5.7.0"
+        "nickdnk/graph-sdk": ">=6.0.0"
     }
 }
